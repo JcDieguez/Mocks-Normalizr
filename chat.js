@@ -24,6 +24,21 @@ const Message = mongoose.model('Message', new mongoose.Schema({
   }
 }));
 
+
+const newMessage = new Message({
+  text: "Hola, cómo estás?",
+  userId: "5f0a1b560133c9233485f276",
+  createdAt: new Date()
+});
+
+newMessage.save((error) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log("Message saved successfully");
+  }
+});
+
 const app = express();
 
 // Esquema de los mensajes
